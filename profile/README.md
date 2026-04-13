@@ -5,20 +5,13 @@ Pure-userspace iSCSI in Go. No kernel modules, no open-iscsi, no iscsi-initiator
 ## The Stack
 
 ```
-tapeplayer          TUI FLAC player for iSCSI tape drives
-uiscsi-tools        CLI tools (uiscsi-ls, uiscsi-tape-dd)
-    |                   |
-    +-------+-----------+
-            |
-       uiscsi-tape      SSC tape driver (Read, Write, Rewind, Space, ...)
-            |
-          uiscsi         RFC 7143 iSCSI initiator library (stdlib-only)
-```
-
-```
-tapesim-tcmu        TCMU-based SSC tape emulator (SCSICmdHandler for 13 SSC/SPC commands)
-    |         |
- tapesim    go-tcmu     In-memory tape sim / Go TCMU kernel interface
+ tapeplayer   uiscsi-tools          Applications
+      \          /
+      uiscsi-tape                   SSC-3 tape driver
+       /    |    \
+  uiscsi    |   tapesim-tcmu        iSCSI initiator / TCMU tape emulator
+            |    /        \
+         tapesim        go-tcmu     Tape state machine / TCMU kernel API
 ```
 
 ## Repositories
