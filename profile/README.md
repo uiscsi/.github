@@ -1,6 +1,8 @@
 # uiscsi
 
-Pure-userspace iSCSI in Go. No kernel modules, no open-iscsi, no iscsi-initiator-utils. Import the library and talk to iSCSI targets directly from your Go application.
+Pure-userspace iSCSI in Go. Main focus is providing the userspace initiator - it requires no kernel modules, no open-iscsi, no iscsi-initiator-utils. Import the library and talk to iSCSI targets directly from your Go application.
+
+Target components are mainly used for testing and not production grade.
 
 ## The Stack
 
